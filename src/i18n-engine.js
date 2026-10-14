@@ -4,7 +4,9 @@
  * 特性：零外部依赖、零后台守护、空闲帧批处理、断开式互斥锁、WeakMap 动态更新比对
  */
 (() => {
-  if (window.__ag_native_i18n_loaded) return;
+  if (window.__ag_native_observer) {
+    try { window.__ag_native_observer.disconnect(); } catch (_) {}
+  }
   window.__ag_native_i18n_loaded = true;
 
   const LOCALES = {
@@ -368,10 +370,137 @@
     "Auto-Expand Changes Overview": "自动展开变更概览",
     "Auto-Open Edited Files": "自动打开编辑的文件",
     "Open Agent on Reload": "重载时自动打开智能体面板",
-    "Automatic Check for Updates": "自动检查更新"
+    "Automatic Check for Updates": "自动检查更新",
+
+    // 侧栏、顶部与导航辅助
+    "Sidebar": "侧边栏",
+    "Display Options": "显示选项",
+    "Create New Project": "创建新项目",
+    "More options": "更多选项",
+    "More actions": "更多操作",
+    "Pin conversation": "置顶会话",
+    "Unpin conversation": "取消置顶会话",
+    "Stop execution": "停止执行",
+    "Archive conversation": "归档会话",
+    "Customize Sections": "自定义侧栏分组",
+    "No more older messages": "没有更多历史消息了",
+    "Send message": "发送消息",
+    "Customize": "自定义",
+
+    // 交互反馈与查看器
+    "Agent response": "智能体回答",
+    "User message": "用户消息",
+    "Good response": "满意",
+    "Bad response": "不满意",
+    "Undo to this point": "撤销至此",
+    "Copy path": "复制路径",
+    "Preview": "预览",
+    "Raw": "源码",
+    "New tab": "新建标签页",
+    "File Viewer": "文件查看器",
+    "File Viewer header": "文件查看器标头",
+    "File path breadcrumbs": "文件路径导航",
+    "View Diff": "查看差异",
+    "Toggle sidebar": "展开/折叠侧边栏",
+    "Maximize Pane": "最大化窗格",
+    "Minimize Pane": "最小化窗格",
+    "Restore Pane": "还原窗格",
+    "Dark": "深色",
+    "Light": "浅色",
+    "System": "跟随系统",
+    "Refresh": "刷新",
+    "Refresh quota and credits data": "刷新配额与点数数据",
+
+    // 模型选择器与用量限制
+    "Model": "模型",
+    "Notice": "提示",
+    "Unavailable": "不可用",
+    "View Usage": "查看用量明细",
+    "Five Hour Limit Remaining": "5 小时配额剩余",
+    "Weekly Limit Remaining": "每周配额剩余",
+    "Claude and GPT models": "Claude 与 GPT 模型",
+    "Gemini Models": "Gemini 模型",
+    "For help, visit": "如需帮助，请访问",
+    "or join the": "或加入",
+    "chat space": "聊天群组",
+    "High": "高",
+    "Medium": "中",
+    "Low": "低",
+    "Inherit": "继承",
+    "Effort": "思考力度",
+    "Reasoning effort": "思考力度",
+    "Thinking Process": "思考过程",
+    "Choose a model": "选择模型",
+    "(Thinking)": "(思考模型)",
+    "(Medium)": "(中度思考)",
+    "(High)": "(深度思考)",
+    "(Low)": "(轻度思考)",
+
+    // 智能体权限预设面板
+    "Request Review": "请求审查",
+    "Every command requires approval.": "每条命令均需经过您的批准。",
+    "Ask before sensitive operations.": "在执行敏感操作前进行询问。",
+    "Turbo": "极速模式 (Turbo)",
+    "Run all commands without restrictions.": "无限制直接运行所有命令。",
+
+    // 斜杠命令与功能卡片说明
+    "Ask a quick question without interrupting the main conversation.": "在不打断主会话的情况下快速提问。",
+    "Run until the specified goal is completely finished.": "持续自主运行，直至指定目标彻底完成。",
+    "Compact the conversation now (summarize history to free up the context window).": "立即压缩会话（总结历史上下文以释放上下文窗口空间）。",
+    "Run an instruction on a recurring schedule or as a one-time timer.": "按周期性定时计划或单次倒计时运行指令。",
+    "Invoke a browser agent for web tasks.": "调用浏览器智能体执行网页浏览与检索任务。",
+    "Plan carefully before executing a task.": "在执行任务前进行周密的逐步规划。",
+    "Interview me to align on a plan.": "对我进行交互式访谈，以对齐计划与设计方案。",
+    "Invoke a team of agents to autonomously tackle large projects.": "调用多智能体协作团队自主攻克大型复杂项目。",
+    "Reflect on recent successes or corrections to capture reusable skills or rules.": "复盘近期的成功经验或纠错记录，提炼为可复用的技能或规则。",
+    "Invoke the Boost multi-agent orchestrator for complex tasks.": "调用 Boost 深度思考与多智能体编排器处理复杂任务。",
+    "Guidelines for interacting with GitHub and request permissions from the user when commands fail due to restrictions in the agent environment.": "与 GitHub 交互的指南，并在命令因智能体环境限制而失败时向用户申请权限。",
+    "The full developer experience.": "完整的开发者全功能体验。",
+    "Project 4K interface without developer tooling.": "无开发者工具的 Project 4K 纯净界面。",
+    "Queue until after the current turn.": "排队等待当前轮次结束后发送。",
+    "Interrupt the agent and send immediately.": "打断智能体并立即发送。",
+    "Replace the default browser right-click menu with quick actions.": "将浏览器默认右键菜单替换为快捷操作。",
+    "Configure a chat bot so you can use Jetski directly from Google Chat.": "配置聊天机器人，以便直接在 Google Chat 中使用 Jetski。",
+    "Setup": "配置",
+    "Setup Jetski Chat": "配置 Jetski 聊天",
+    "Avatar URL": "头像链接",
+    "Bot Name": "机器人名称",
+    "Context Menus": "上下文右键菜单",
+    "Custom Context Menus": "自定义右键菜单",
+
+    // 输入框占位符
+    "Describe the bug you encountered...": "请描述您遇到的问题...",
+    "Enter avatar URL (optional)": "输入头像链接（可选）",
+    "Enter bot name (optional)": "输入机器人名称（可选）",
+    "Please list the steps to reproduce the issue": "请列出复现该问题的具体步骤",
+
+    // 执行状态与标签页操作
+    "Run command": "运行命令",
+    "Run in background": "在后台运行",
+    "Bypass Sandbox": "绕过沙箱",
+    "Allow command": "允许命令",
+    "Thinking...": "正在思考...",
+    "Thinking": "思考中",
+    "Working...": "正在处理...",
+    "Applying changes...": "正在应用更改...",
+    "Step details": "步骤详情",
+    "Expand details": "展开详情",
+    "Collapse details": "折叠详情"
   };
 
+  function translateTimePhrase(str) {
+    if (!str) return str;
+    return str
+      .replace(/(\d+)\s*days?/gi, '$1 天')
+      .replace(/(\d+)\s*hours?/gi, '$1 小时')
+      .replace(/(\d+)\s*minutes?/gi, '$1 分钟')
+      .replace(/(\d+)\s*seconds?/gi, '$1 秒')
+      .replace(/,\s*/g, ' ')
+      .trim();
+  }
+
   const PATTERNS = [
+    // 动态数量与相对时间
     { reg: /^(\d+)\s+active\s+conversations$/i, rep: "$1 个进行中的会话" },
     { reg: /^(\d+)\s+files?\s+changed$/i, rep: "$1 个文件变更" },
     { reg: /^Show\s+(\d+)\s+breakdowns?$/i, rep: "展开明细 ($1 项)" },
@@ -380,12 +509,43 @@
     { reg: /^Available AI Credits:\s*(\d+)/i, rep: "可用 AI 点数：$1" },
     { reg: /^(\d+)\s+tools?$/i, rep: "$1 个工具" },
     { reg: /^(\d+)\s+skills?$/i, rep: "$1 个技能" },
+    { reg: /^Skills:\s*(\d+)\s*tokens?$/i, rep: "技能: $1 Token" },
+    { reg: /^Rules:\s*(\d+)\s*tokens?$/i, rep: "规则: $1 Token" },
+    { reg: /^MCP:\s*(\d+)\s*tokens?$/i, rep: "MCP: $1 Token" },
+    { reg: /^Total:\s*(\d+)\s*tokens?$/i, rep: "总计: $1 Token" },
+    { reg: /^(\d+)\s*tokens?$/i, rep: "$1 Token" },
+    { reg: /^(\d+)\s*s\s+ago$/i, rep: "$1 秒前" },
     { reg: /^(\d+)\s*m\s+ago$/i, rep: "$1 分钟前" },
     { reg: /^(\d+)\s*h\s+ago$/i, rep: "$1 小时前" },
     { reg: /^(\d+)\s*d\s+ago$/i, rep: "$1 天前" },
+
+    // 动态选择器与交互提示
     { reg: /^Select model,\s*current:\s*(.*)$/i, rep: "选择模型，当前：$1" },
     { reg: /^Agent permissions preset selector,\s*current:\s*(.*)$/i, rep: "智能体权限预设选择器，当前：$1" },
-    { reg: /^Cancel\s*\((.*?)\)$/i, rep: "取消 ($1)" }
+    { reg: /^Cancel\s*\((.*?)\)$/i, rep: "取消 ($1)" },
+    { reg: /^Close\s+(.*)$/i, rep: "关闭 $1" },
+    { reg: /^Opens external link:\s*(.*)$/i, rep: "打开外部链接: $1" },
+    { reg: /^Send feedback as\s+(.*)$/i, rep: "以 $1 身份提交反馈" },
+    { reg: /^No more older messages,\s*showing\s+(\d+)\s+of\s+(\d+)$/i, rep: "没有更多历史消息了，显示 $1 / $2" },
+    { reg: /^Load older messages,\s*showing\s+(\d+)\s+of\s+(\d+)$/i, rep: "加载更早的消息，显示 $1 / $2" },
+
+    // 模型配额与刷新时间动态长句
+    {
+      reg: /^You have hit your (\d+)-hour limit, it will refresh in (.*?)\. If on a supported paid plan, you can use AI credits in the interim\.$/i,
+      rep: (_, h, t) => `您已达到 ${h} 小时使用限额，将在 ${translateTimePhrase(t)} 后刷新。如已订阅支持的付费方案，在此期间可使用 AI 点数。`
+    },
+    {
+      reg: /^You have hit your (\d+)-hour limit, so the weekly limit does not currently apply\. Your (\d+)-hour limit will refresh in (.*?)\.$/i,
+      rep: (_, h1, h2, t) => `您已达到 ${h1} 小时使用限额，因此当前不适用每周限额。您的 ${h2} 小时限额将在 ${translateTimePhrase(t)} 后刷新。`
+    },
+    {
+      reg: /^You have used some of your (\d+)-hour limit, it will fully refresh in (.*?)\.$/i,
+      rep: (_, h, t) => `您已消耗了部分 ${h} 小时限额，将在 ${translateTimePhrase(t)} 后完全刷新。`
+    },
+    {
+      reg: /^You have used some of your weekly limit, it will fully refresh in (.*?)\.$/i,
+      rep: (_, t) => `您已消耗了部分每周限额，将在 ${translateTimePhrase(t)} 后完全刷新。`
+    }
   ];
 
   const EXCLUSION_SELECTOR = [
@@ -400,31 +560,40 @@
   // 基于 WeakMap 的动态映射：记录上一次翻译后的值，解决 React 虚拟 DOM 动态重渲染漏翻问题
   const lastTranslated = new WeakMap();
 
+  function matchString(str) {
+    if (!str || typeof str !== 'string') return null;
+    const trimmed = str.trim();
+    if (!trimmed) return null;
+
+    if (LOCALES[trimmed]) {
+      return str.replace(trimmed, LOCALES[trimmed]);
+    }
+
+    for (let i = 0; i < PATTERNS.length; i++) {
+      const p = PATTERNS[i];
+      if (p.reg.test(trimmed)) {
+        const rep = typeof p.rep === 'function' ? trimmed.replace(p.reg, p.rep) : trimmed.replace(p.reg, p.rep);
+        return str.replace(trimmed, rep);
+      }
+    }
+    return null;
+  }
+
   function translateTextNode(node) {
     if (!node || node.nodeType !== Node.TEXT_NODE) return;
     if (lastTranslated.get(node) === node.nodeValue) return;
 
     const parent = node.parentElement;
-    if (!parent || parent.closest(EXCLUSION_SELECTOR)) return;
+    if (!parent) return;
 
-    const orig = node.nodeValue.trim();
-    if (!orig) return;
+    // 交互控件（按钮、菜单项、标签页、选项卡）即使处于 chat-message 容器中也必须汉化
+    const isControl = parent.closest('button, [role="button"], [role="menuitem"], [role="tab"], [role="option"]');
+    if (!isControl && parent.closest(EXCLUSION_SELECTOR)) return;
 
-    if (LOCALES[orig]) {
-      const rep = node.nodeValue.replace(orig, LOCALES[orig]);
-      node.nodeValue = rep;
-      lastTranslated.set(node, rep);
-      return;
-    }
-
-    for (let i = 0; i < PATTERNS.length; i++) {
-      const p = PATTERNS[i];
-      if (p.reg.test(orig)) {
-        const rep = node.nodeValue.replace(p.reg, p.rep);
-        node.nodeValue = rep;
-        lastTranslated.set(node, rep);
-        return;
-      }
+    const res = matchString(node.nodeValue);
+    if (res && res !== node.nodeValue) {
+      node.nodeValue = res;
+      lastTranslated.set(node, res);
     }
   }
 
@@ -432,17 +601,16 @@
     if (!el || el.nodeType !== Node.ELEMENT_NODE) return;
     if (el.closest(ATTR_EXCLUSION_SELECTOR)) return;
 
-    if (el.hasAttribute('placeholder')) {
-      const ph = el.getAttribute('placeholder').trim();
-      if (LOCALES[ph]) el.setAttribute('placeholder', LOCALES[ph]);
-    }
-    if (el.hasAttribute('title')) {
-      const title = el.getAttribute('title').trim();
-      if (LOCALES[title]) el.setAttribute('title', LOCALES[title]);
-    }
-    if (el.hasAttribute('aria-label')) {
-      const aria = el.getAttribute('aria-label').trim();
-      if (LOCALES[aria]) el.setAttribute('aria-label', LOCALES[aria]);
+    const attrs = ['placeholder', 'title', 'aria-label'];
+    for (let i = 0; i < attrs.length; i++) {
+      const attr = attrs[i];
+      if (el.hasAttribute(attr)) {
+        const val = el.getAttribute(attr);
+        const res = matchString(val);
+        if (res && res !== val) {
+          el.setAttribute(attr, res);
+        }
+      }
     }
   }
 
@@ -553,6 +721,7 @@
       attributes: true,
       attributeFilter: ['placeholder', 'title', 'aria-label']
     });
+    window.__ag_native_observer = observer;
   }
 
   function init() {

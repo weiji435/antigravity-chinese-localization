@@ -49,7 +49,7 @@ async function checkStatus() {
       }
       if (!asar) throw new Error('未加载到 asar 模块');
       const preload = asar.extractFile(asarPath, 'dist/preload.js').toString('utf8');
-      const isPatched = preload.includes('Antigravity Native UI Localization Engine');
+      const isPatched = preload.includes('Inlined Native i18n Engine') || preload.includes('Antigravity Native UI Localization Engine');
       console.log(`[4] ASAR 内置原生汉化引擎: ${isPatched ? '✅ 已固化嵌入 (启动自生效)' : '❌ 未嵌入 (当前为官方原版)'}`);
       const menu = asar.extractFile(asarPath, 'dist/menu.js').toString('utf8');
       const isMenuPatched = menu.includes('MENU_LOCALES');
