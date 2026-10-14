@@ -34,7 +34,7 @@
 直接将本仓库克隆至 Antigravity 全局技能目录：
 
 ```bash
-git clone https://github.com/<你的用户名>/antigravity-chinese-localization.git %USERPROFILE%\.gemini\skills\antigravity-chinese-localization
+git clone https://github.com/weiji435/antigravity-chinese-localization.git %USERPROFILE%\.gemini\skills\antigravity-chinese-localization
 ```
 
 克隆完成后：
