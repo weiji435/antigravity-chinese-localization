@@ -76,6 +76,9 @@ npm run apply
 ```bash
 # 检测后台是否有守护残留、核心包是否已固化、当前窗口文本是否汉化
 npm run status
+
+# 深度自检：自动模拟点击触发会话菜单及二级子菜单，检测是否 100% 汉化
+npm run inspect
 ```
 
 ---
@@ -148,7 +151,9 @@ antigravity-chinese-localization/
 │   └── upstream-notion-spec.md # 上游 Notion 规约归档与新旧架构对照
 └── scripts/
     ├── apply-current.js     # 当前活动窗口单次注入脚本
+    ├── auto-inspect-menus.js# 会话及二级子菜单全自动深度自检脚本
     ├── build-asar.js        # 自动化解包、内联、回包固化脚本
+    ├── find-untranslated.js # 全界面未汉化探针扫描脚本
     ├── status.js            # 全面状态与健康检查脚本
     └── restore.js           # 官方英文版一键复原脚本
 ```

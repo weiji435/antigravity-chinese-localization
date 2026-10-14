@@ -129,6 +129,14 @@ node C:\Users\Hp\.gemini\skills\antigravity-chinese-localization\scripts\build-a
 node C:\Users\Hp\.gemini\skills\antigravity-chinese-localization\scripts\restore.js
 ```
 
+### 5. 菜单与二级子菜单全自动深度自检
+
+模拟前台真实鼠标交互，自动触发会话 `⋮` 操作菜单并悬浮展开二级子菜单（如复制、拆分），检测并验证是否 100% 汉化：
+
+```bash
+node C:\Users\Hp\.gemini\skills\antigravity-chinese-localization\scripts\auto-inspect-menus.js
+```
+
 ---
 
 ## 词条覆盖范围

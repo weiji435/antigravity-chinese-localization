@@ -8,7 +8,8 @@
     "apply": "node scripts/apply-current.js",
     "build": "node scripts/build-asar.js",
     "restore": "node scripts/restore.js",
-    "scan": "node scripts/find-untranslated.js"
+    "scan": "node scripts/find-untranslated.js",
+    "inspect": "node scripts/auto-inspect-menus.js"
   },
   "keywords": [
     "antigravity",

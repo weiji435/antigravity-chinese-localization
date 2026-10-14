@@ -385,7 +385,133 @@
     "Open Keyboard Shortcuts": "打开快捷键设置",
     "Mark as Read": "标记为已读",
     "Mark as Unread": "标记为未读",
+    "Mark Read": "标记为已读",
+    "Mark Unread": "标记为未读",
+    "Delete": "删除",
     "Delete Conversation": "删除会话",
+    "Are you sure you want to delete this conversation? This action cannot be undone.": "确定要删除此会话吗？此操作无法撤销。",
+    "Delete Handler": "删除处理器",
+    "Delete Hook": "删除钩子",
+    "Conversation ID": "会话 ID",
+    "Conversation Name": "会话名称",
+    "Project Name": "项目名称",
+    "Workspace Name": "工作区名称",
+    "Worktree Name": "工作树名称",
+    "Split Right": "向右拆分",
+    "Split Down": "向下拆分",
+    "Replace With New": "替换为新会话",
+    "Remove From Split": "从拆分中移除",
+    "Pin": "置顶",
+    "Unpin": "取消置顶",
+    "View Debug": "查看调试信息",
+    "Move to Group": "移动到分组",
+    "Move to New Group": "移动到新分组",
+    "New Group": "新建分组",
+    "Remove from Group": "从分组中移除",
+    "Group name": "分组名称",
+    "Create Group": "创建分组",
+    "A group with this name already exists.": "已存在同名分组。",
+    "Create fork in current workspace": "在当前工作区创建分支",
+    "Create fork in shared workspace": "在共享工作区创建分支",
+    "Create fork in new workspace": "在新工作区创建分支",
+    "Telemetry": "遥测数据",
+    "Conversation Telemetry": "会话遥测数据",
+    "Share Conversation (Preview)": "分享会话（预览）",
+    "Share Conversation": "分享会话",
+    "Copy Config File Path": "复制配置文件路径",
+    "Copy Conversation ID": "复制会话 ID",
+    "Copy File Name": "复制文件名",
+    "Copy File Path": "复制文件路径",
+    "Copy Image": "复制图像",
+    "Copy Path": "复制路径",
+    "Copy Trajectory ID": "复制执行轨迹 ID",
+    "Copy debug info": "复制调试信息",
+    "Create Project": "创建项目",
+    "New Project": "新建项目",
+    "New Workspace": "新建工作区",
+    "Current workspace": "当前工作区",
+    "Discard": "放弃更改",
+    "Dismiss": "忽略",
+    "Don't show this for 2 days": "2 天内不再显示",
+    "Actions": "操作",
+    "Activity": "动态与活动",
+    "All": "全部",
+    "Allow once": "仅允许一次",
+    "Always run": "始终运行",
+    "Branch": "分支",
+    "Close (Esc)": "关闭 (Esc)",
+    "Comments": "注释",
+    "Commit": "提交",
+    "Custom Order": "自定义排序",
+    "Cut": "剪切",
+    "Paste": "粘贴",
+    "Daily": "每日",
+    "Weekly": "每周",
+    "Hourly": "每小时",
+    "Idle": "空闲",
+    "In Progress": "进行中",
+    "Installed": "已安装",
+    "Last 7 days": "最近 7 天",
+    "Last Updated": "最后更新",
+    "Logs": "日志",
+    "MCP Servers": "MCP 服务器",
+    "Media": "媒体",
+    "Mentions": "提及",
+    "No conversations yet": "暂无会话",
+    "Not Signed In": "未登录",
+    "Open Command Palette": "打开命令面板",
+    "Open Conversation": "打开会话",
+    "Open Conversation History": "打开历史会话",
+    "Open Launchpad": "打开启动台",
+    "Open Preferences": "打开偏好设置",
+    "Open Preview": "打开预览",
+    "Open in Built-in Browser": "在内置浏览器中打开",
+    "Open in Code Search": "在代码搜索中打开",
+    "Open in Preview Pane": "在预览窗格中打开",
+    "Open in Preview Tab": "在预览标签页中打开",
+    "Open with External Browser": "使用外部浏览器打开",
+    "Output": "输出",
+    "Proceed with Plan": "按计划执行",
+    "Purchase Credits": "购买点数",
+    "Push": "推送",
+    "Quick Start": "快速入门",
+    "Read Files": "读取文件",
+    "Write Files": "写入文件",
+    "Read URLs": "读取网址",
+    "Execute URLs": "执行网址",
+    "Screen Recording": "屏幕录制",
+    "See Plans": "查看方案",
+    "See more results": "查看更多结果",
+    "Select Model": "选择模型",
+    "Select another model": "选择其他模型",
+    "Sidebar grouped by project": "侧栏按项目分组",
+    "Sidebar grouped by workspace": "侧栏按工作区分组",
+    "Start Voice Recording": "开始语音录制",
+    "Stop Voice Recording": "停止语音录制",
+    "Stopped": "已停止",
+    "Suggestions in Editor": "编辑器代码建议",
+    "System Prompt": "系统提示词",
+    "Toggle Editor": "切换编辑器",
+    "Toggle File Viewer": "切换文件查看器",
+    "Toggle Project Selector": "切换项目选择器",
+    "Upload Files": "上传文件",
+    "Uptime": "运行时间",
+    "Volume": "音量",
+    "Zoom in (+)": "放大 (+)",
+    "Zoom out (-)": "缩小 (-)",
+    "Got it": "知道了",
+    "Mark This Conversation as Read": "将此会话标记为已读",
+    "Mark This Conversation as Unread": "将此会话标记为未读",
+    "Monday": "星期一",
+    "Tuesday": "星期二",
+    "Wednesday": "星期三",
+    "Thursday": "星期四",
+    "Friday": "星期五",
+    "Saturday": "星期六",
+    "Sunday": "星期日",
+    "Fork conversation in this folder": "在此文件夹中分支会话",
+    "Group By Project": "按项目分组",
+    "Group By Workspace": "按工作区分组",
     "Archive / Restore": "归档 / 恢复",
     "Copy Conversation Markdown": "复制会话 Markdown",
     "Restart Main Language Server": "重启语言服务核心",
@@ -680,7 +806,9 @@
 
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: (n) => {
-        if (!n.parentElement || n.parentElement.closest(EXCLUSION_SELECTOR)) {
+        if (!n.parentElement) return NodeFilter.FILTER_REJECT;
+        const isControl = n.parentElement.closest('button, [role="button"], [role="menuitem"], [role="tab"], [role="option"]');
+        if (!isControl && n.parentElement.closest(EXCLUSION_SELECTOR)) {
           return NodeFilter.FILTER_REJECT;
         }
         return NodeFilter.FILTER_ACCEPT;
@@ -696,17 +824,20 @@
   // 待处理节点队列与断开式自激互斥锁
   const pendingNodes = new Set();
   let flushScheduled = false;
+  let isFlushing = false;
   let observer = null;
 
   function flushPending() {
     flushScheduled = false;
-    if (pendingNodes.size === 0) return;
-
-    // 【关键】：断开监听，处理批量节点，处理完后再恢复监听，彻底切断 DOM 自激引发的事件风暴！
-    if (observer) observer.disconnect();
+    if (pendingNodes.size === 0 || isFlushing) return;
+    isFlushing = true;
 
     try {
-      for (const node of pendingNodes) {
+      const batch = Array.from(pendingNodes);
+      pendingNodes.clear();
+
+      for (let i = 0; i < batch.length; i++) {
+        const node = batch[i];
         if (!node.isConnected) continue;
         if (node.nodeType === Node.ELEMENT_NODE) {
           walkTranslate(node);
@@ -715,15 +846,9 @@
         }
       }
     } finally {
-      pendingNodes.clear();
-      if (observer && document.body) {
-        observer.observe(document.body, {
-          childList: true,
-          subtree: true,
-          characterData: true,
-          attributes: true,
-          attributeFilter: ['placeholder', 'title', 'aria-label']
-        });
+      isFlushing = false;
+      if (pendingNodes.size > 0) {
+        scheduleFlush();
       }
     }
   }
@@ -731,11 +856,7 @@
   function scheduleFlush() {
     if (flushScheduled) return;
     flushScheduled = true;
-    if (typeof requestIdleCallback === 'function') {
-      requestIdleCallback(flushPending, { timeout: 80 });
-    } else {
-      setTimeout(flushPending, 20);
-    }
+    setTimeout(flushPending, 10);
   }
 
   function startObserver() {
@@ -753,6 +874,7 @@
             hasChanges = true;
           }
         } else if (m.type === 'characterData') {
+          if (lastTranslated.get(m.target) === m.target.nodeValue) continue;
           pendingNodes.add(m.target);
           hasChanges = true;
         } else if (m.type === 'attributes') {
