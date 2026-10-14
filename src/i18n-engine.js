@@ -250,10 +250,51 @@
     "Follow the guide at": "请参考指南：",
     "to back up your data and run the migration.": "以备份数据并执行迁移。",
 
-    // 项目与工作区
+    // 项目与工作区及非项目范围会话设置
+    "Agent Settings": "智能体设置",
+    "Agent settings and permissions for conversations outside of projects.": "非项目范围会话的智能体设置与权限。",
+    "Agent settings and permissions for this project.": "此项目的智能体设置与权限。",
+    "Project Settings": "项目设置",
+    "Workspace Settings": "工作区设置",
+    "Local Permissions": "本地权限",
+    "Also includes": "亦包含",
+    "when working in this project.": "（在当前项目中工作时）。",
+    "when working in this project": "（在当前项目中工作时）",
+    "when working in this conversation.": "（在当前会话中工作时）。",
+    "when working in this conversation": "（在当前会话中工作时）",
+    "when working outside of projects.": "（在非项目范围工作时）。",
+    "when working outside of projects": "（在非项目范围工作时）",
+    "File Access Rules": "文件访问规则",
+    "Configure allowed and denied paths for file reads and writes.": "配置允许和拒绝读取与写入的文件路径。",
+    "Terminal Commands": "终端命令",
+    "Configure allowed terminal commands.": "配置允许执行的终端命令。",
+    "Commands Outside Sandbox": "沙箱外执行命令",
+    "Configure allowed commands outside the sandbox.": "配置允许在沙箱外部运行的命令。",
+    "Network Access Rules": "网络访问规则",
+    "Configure allowed and denied URLs for reading.": "配置允许或拒绝读取的网址。",
+    "Browser Actuation Rules": "浏览器交互操作规则",
+    "Configure allowed and denied URLs for browser actuation.": "配置允许或拒绝进行浏览器交互操作的网址。",
+    "Allowed Paths": "允许的路径",
+    "Denied Paths": "拒绝的路径",
+    "Add Path": "添加路径",
+    "Allowed Commands": "允许的命令",
+    "Denied Commands": "拒绝的命令",
+    "Add Command": "添加命令",
+    "Allowed URLs": "允许的网址",
+    "Denied URLs": "拒绝的网址",
+    "Add URL": "添加网址",
+    "Read and Write": "读取与写入",
+    "Read Only": "仅读取",
+    "Write Only": "仅写入",
+    "Inherit Global": "继承全局",
+    "Inherited from Global": "继承自全局",
+    "Override Global": "覆盖全局配置",
+    "Learn more about": "了解更多关于",
+    "No paths configured.": "暂未配置任何路径。",
+    "No commands configured.": "暂未配置任何命令。",
+    "No URLs configured.": "暂未配置任何网址。",
     "Folders": "项目目录",
     "Permission Settings": "权限设置",
-    "Inherit Global": "继承全局",
     "MCP Tools": "MCP 工具",
     "Rules": "项目规则",
     "Delete Project": "删除项目",
@@ -545,7 +586,17 @@
     {
       reg: /^You have used some of your weekly limit, it will fully refresh in (.*?)\.$/i,
       rep: (_, t) => `您已消耗了部分每周限额，将在 ${translateTimePhrase(t)} 后完全刷新。`
-    }
+    },
+
+    // 会话与权限规则动态匹配
+    { reg: /^Terminal Commands\s*(\d*)$/i, rep: "终端命令 $1" },
+    { reg: /^File Access Rules\s*(\d*)$/i, rep: "文件访问规则 $1" },
+    { reg: /^Network Access Rules\s*(\d*)$/i, rep: "网络访问规则 $1" },
+    { reg: /^Commands Outside Sandbox\s*(\d*)$/i, rep: "沙箱外执行命令 $1" },
+    { reg: /^Learn more about\s*(.*)$/i, rep: "了解更多关于 $1" },
+    { reg: /^Also includes\s+(.*?)\s+when working in this project\.?$/i, rep: "在此项目中工作时亦包含 $1。" },
+    { reg: /^Also includes\s+(.*?)\s+when working in this conversation\.?$/i, rep: "在此会话中工作时亦包含 $1。" },
+    { reg: /^Also includes\s+(.*?)\s+when working outside of projects\.?$/i, rep: "在非项目范围工作时亦包含 $1。" }
   ];
 
   const EXCLUSION_SELECTOR = [
