@@ -29,26 +29,44 @@
 - 安装有 **Node.js** (>= 18.0)
 - 运行于 Windows 平台下的 Google Antigravity 客户端
 
-### 方式一：一键自动固化（推荐，持久化生效）
+### 方式一：作为 Antigravity Skill 原生加载（最推荐，支持对话调度）
+
+直接将本仓库克隆至 Antigravity 全局技能目录：
+
+```bash
+git clone https://github.com/<你的用户名>/antigravity-chinese-localization.git %USERPROFILE%\.gemini\skills\antigravity-chinese-localization
+```
+
+克隆完成后：
+1. 客户端侧栏“技能与自定义 (Customizations)”面板将自动识别并展示本技能。
+2. 您可以在任何对话中直接对智能体说：**“帮我汉化反重力”** 或 **“检查汉化状态”**，智能体会自动调度本技能的脚本执行打包与生效！
+
+---
+
+### 方式二：手动在终端一键固化（持久化生效）
 
 克隆或下载本仓库至本地后，在终端执行：
 
 ```bash
-# 自动解包官方核心包、内联嵌入汉化引擎、自动回包固化至 app.asar
+# 自动检测/安装依赖、解包官方核心包、内联嵌入汉化引擎、自动回包固化至 app.asar
 node scripts/build-asar.js
+# 或使用 npm 命令：
+npm run build
 ```
 
 > **提示**：打包完成后，重启 Antigravity 客户端即可永久生效。
 
 ---
 
-### 方式二：当前活动窗口即时热生效（无需重启客户端）
+### 方式三：当前活动窗口即时热生效（无需重启客户端）
 
 若 Antigravity 客户端正在运行，且不想关闭重启：
 
 ```bash
 # 单次无感注入到当前窗口，发完立即断开，不留后台进程
 node scripts/apply-current.js
+# 或使用 npm 命令：
+npm run apply
 ```
 
 ---
@@ -57,8 +75,40 @@ node scripts/apply-current.js
 
 ```bash
 # 检测后台是否有守护残留、核心包是否已固化、当前窗口文本是否汉化
-node scripts/status.js
+npm run status
 ```
+
+---
+
+### 🔍 发现界面还有遗漏怎么办？（一键扫描与极简增补）
+
+随着 Antigravity 官方客户端版本更新，可能会出现新的按钮或设置说明。本技能内置了**自动化探针扫描器**与**极简热增补机制**：
+
+#### 1. 一键扫描当前界面的所有未汉化英文
+打开 Antigravity 并切换到有英文的界面，在终端运行：
+```bash
+npm run scan
+```
+探针会自动连接当前窗口，**秒级列出整棵 DOM 树中所有遗漏的英文文本与 `aria-label` 属性**，无需人工肉眼查找！
+
+#### 2. 添加新词条（极简源码结构）
+打开 [`src/i18n-engine.js`](src/i18n-engine.js)：
+- **固定词汇/长句**：在 `LOCALES` 字典中添加一行即可：
+  ```javascript
+  "新英文原词": "优雅的中文翻译",
+  ```
+- **带数字或变量的动态文本**：在 `PATTERNS` 数组中添加一行正则：
+  ```javascript
+  { reg: /^Remaining (\d+) credits$/i, rep: "剩余 $1 点数" },
+  ```
+
+#### 3. 即时验证与固化
+```bash
+npm run apply   # 0.5 秒内在当前窗口即时预览效果
+npm run build   # 满意后一键固化进核心包
+```
+
+欢迎提交 Pull Request，共同完善全量词典！
 
 ---
 
@@ -66,7 +116,7 @@ node scripts/status.js
 
 ```bash
 # 将 app.asar.original.bak 瞬间还原为官方原版
-node scripts/restore.js
+npm run restore
 ```
 
 ---

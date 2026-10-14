@@ -18,7 +18,7 @@ async function checkStatus() {
 
   // 2. 检测 resources/app.asar 固化状态
   const localAppData = process.env.LOCALAPPDATA || path.join(process.env.USERPROFILE || 'C:\\Users\\Hp', 'AppData', 'Local');
-  const resourcesDir = path.join(localAppData, 'Programs', 'antigravity', 'resources');
+  const resourcesDir = process.env.ANTIGRAVITY_RESOURCES || path.join(localAppData, 'Programs', 'antigravity', 'resources');
   const asarPath = path.join(resourcesDir, 'app.asar');
   const bakPath = path.join(resourcesDir, 'app.asar.original.bak');
 

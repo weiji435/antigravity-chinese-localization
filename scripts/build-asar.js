@@ -29,8 +29,15 @@ function loadAsar() {
     } catch (e) {}
   }
 
-  console.error('❌ 未找到 @electron/asar 模块。请在技能目录下运行: npm install');
-  process.exit(1);
+  console.log('📦 未检测到 @electron/asar，正在自动安装依赖 (npm install)...');
+  try {
+    execSync('npm install --no-audit --no-fund', { cwd: path.join(__dirname, '..'), stdio: 'inherit' });
+    const local = path.join(__dirname, '..', 'node_modules', '@electron', 'asar');
+    if (fs.existsSync(local)) return require(local);
+  } catch (err) {
+    console.error('❌ 自动安装依赖失败，请手动在技能目录下运行: npm install');
+    process.exit(1);
+  }
 }
 
 function safeCleanDir(dir) {
@@ -48,7 +55,7 @@ async function buildAsar() {
   console.log('====================================================\n');
 
   const localAppData = process.env.LOCALAPPDATA || path.join(process.env.USERPROFILE || 'C:\\Users\\Hp', 'AppData', 'Local');
-  const resourcesDir = path.join(localAppData, 'Programs', 'antigravity', 'resources');
+  const resourcesDir = process.env.ANTIGRAVITY_RESOURCES || path.join(localAppData, 'Programs', 'antigravity', 'resources');
   const asarPath = path.join(resourcesDir, 'app.asar');
   const bakPath = path.join(resourcesDir, 'app.asar.original.bak');
 
