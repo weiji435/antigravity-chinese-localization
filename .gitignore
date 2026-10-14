@@ -1,0 +1,7 @@
+node_modules/
+*.log
+*.asar
+*.unpacked
+.antigravity-*
+.DS_Store
+Thumbs.db

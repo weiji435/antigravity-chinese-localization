@@ -1,0 +1,25 @@
+{
+  "name": "antigravity-chinese-localization",
+  "version": "1.0.0",
+  "description": "Google Antigravity 官方客户端全量原生汉化补丁与技能 (Zero-Daemon, Zero-Lag, Inlined Preload)",
+  "main": "src/i18n-engine.js",
+  "scripts": {
+    "status": "node scripts/status.js",
+    "apply": "node scripts/apply-current.js",
+    "build": "node scripts/build-asar.js",
+    "restore": "node scripts/restore.js"
+  },
+  "keywords": [
+    "antigravity",
+    "google-antigravity",
+    "i18n",
+    "chinese-localization",
+    "electron-patch",
+    "skill"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@electron/asar": "^3.2.14"
+  }
+}
