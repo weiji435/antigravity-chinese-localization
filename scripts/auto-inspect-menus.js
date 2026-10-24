@@ -75,7 +75,7 @@ async function autoInspect() {
         console.log('[2] 会话主菜单已弹出，当前渲染条目:');
         items.forEach((item, idx) => console.log(`    ${idx + 1}. ${item}`));
 
-        const englishFound = items.filter(t => /[a-zA-Z]{3,}/.test(t));
+        const englishFound = items.map(t => t.replace(/(Ctrl|Alt|Shift)\+[A-Za-z0-9+]+/gi, '').trim()).filter(t => /[a-zA-Z]{3,}/.test(t));
         if (englishFound.length === 0) {
           console.log('✅ 会话主菜单已全部完成原生汉化！\n');
         } else {
@@ -94,14 +94,14 @@ async function autoInspect() {
               returnByValue: true
             }
           }));
-        }, 350);
+        }, 800);
       } else if (data.id === 3) {
         const allItems = data.result?.result?.value || [];
         console.log('[3] 二级子菜单（拆分选项）展开检测:');
         allItems.forEach((item, idx) => console.log(`    ${idx + 1}. ${item.replace(/\n+/g, ' ')}`));
 
-        // 过滤快捷键如 Ctrl+D、Ctrl+Shift+D 后的英文
-        const subEnglish = allItems.map(t => t.replace(/Ctrl\+[A-Za-z0-9+]+/g, '').trim()).filter(t => /[a-zA-Z]{3,}/.test(t));
+        // 过滤快捷键如 Ctrl+D、Ctrl+Shift+D、Alt+Shift+P 后的英文
+        const subEnglish = allItems.map(t => t.replace(/(Ctrl|Alt|Shift)\+[A-Za-z0-9+]+/gi, '').trim()).filter(t => /[a-zA-Z]{3,}/.test(t));
         if (subEnglish.length === 0) {
           console.log('\n====================================================');
           console.log('🎉 深度自检通过！主菜单及二级子菜单 100% 汉化完成！');
